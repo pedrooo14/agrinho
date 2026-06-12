@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Agrinho 2026 | Do Campo à Cidade: Cultivando o Futuro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', 'Poppins', system-ui, -apple-system, 'Inter', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(145deg, #e9f7e1 0%, #c8e6b5 100%);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animações globais */
+        @keyframes fadeSlideUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes floatSoft {
+            0% { transform: translateY(0px); }
+            100% { transform: translateY(-12px); }
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.4); }
+            70% { box-shadow: 0 0 0 12px rgba(76, 175, 80, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(76, 175, 80, 0); }
+        }
+
+        @keyframes bounceIcon {
+            0%,100%{ transform: translateY(0); }
+            50%{ transform: translateY(-8px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+
+        .animate-on-scroll.reveal {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* cabeçalho e navegação */
+        header {
+            background: #2c5e2e;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+            padding: 0.8rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #ffefb9;
+            font-weight: bold;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            font-size: 2rem;
+            animation: bounceIcon 2s infinite ease;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #f9f7e1;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            font-size: 1.05rem;
+            padding: 6px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            border-bottom-color: #ffd966;
+            color: #ffefb0;
+            transform: translateY(-2px);
+        }
+
+        /* hero */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem 5rem;
+            background: radial-gradient(circle at 10% 30%, #f3f9c0, #b5d8a0);
+            clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+        }
+
+        .hero h1 {
+            font-size: 3.2rem;
+            color: #1f4f1c;
+            text-shadow: 2px 2px 0 #e9f5db;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #2a3e1b;
+            font-weight: 500;
+        }
+
+        .btn {
+            background: #f4b942;
+            border: none;
+            padding: 12px 32px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 60px;
+            color: #2c4722;
+            cursor: pointer;
+            transition: 0.2s;
+            box-shadow: 0 6px 0 #a5661a;
+            transform: translateY(-2px);
+        }
+
+        .btn:active {
+            transform: translateY(2px);
+            box-shadow: 0 2px 0 #a5661a;
+        }
+
+        /* conteudo principal */
+        .container {
+            max-width: 1300px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+        }
+
+        .card-grid {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 3rem 0;
+        }
+
+        .card {
+            background: white;
+            border-radius: 2rem;
+            padding: 1.8rem;
+            flex: 1 1 280px;
+            transition: all 0.3s ease;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+            text-align: center;
+            border: 1px solid #d9f0ca;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 30px -12px rgba(55, 90, 30, 0.3);
+        }
+
+        .card-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Área do jogo educativo */
+        .game-section {
+            background: #fef9e6;
+            border-radius: 3rem;
+            margin: 4rem 0;
+            padding: 2rem;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+        }
+
+        .game-container {
+            background: #e6d5a8;
+            border-radius: 2rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .question-area {
+            background: #fff7e8;
+            padding: 1.5rem;
+            border-radius: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .question {
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: #2b5e2b;
+            margin-bottom: 1.2rem;
+        }
+
+        .options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .option-btn {
+            background: #e7b42c;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.15s linear;
+            color: #2d3e1f;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+        }
+
+        .option-btn:hover {
+            background: #f0c45a;
+            transform: scale(1.02);
+        }
+
+        .feedback {
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            font-weight: 500;
+            min-height: 3rem;
+        }
+
+        .score-board {
+            display: flex;
+            justify-content: space-between;
+            background: #c7dd9c;
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .reset-game {
+            background: #4c7a34;
+            color: white;
+            border: none;
+            padding: 8px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+
+        /* rodapé */
+        footer {
+            background: #1f3b1a;
+            color: #d9e6b3;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 750px) {
+            .hero h1 { font-size: 2.2rem; }
+            .nav-links { gap: 1rem; }
+            .logo { font-size: 1.2rem; }
+            .question { font-size: 1.2rem; }
+        }
+
+        /* selo agrinho */
+        .selo {
+            display: inline-block;
+            animation: pulseGlow 1.8s infinite;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <div class="logo">
+            <span>🌾</span> AGRINHO 2026
+        </div>
+        <ul class="nav-links">
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#temas">Temas</a></li>
+            <li><a href="#jogo">Jogo Educativo</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero">
+     <h3>Criado por Pedro Gabriel - 2° Ano B - Colégio Estadual Professor Paulo Freire</h3>
+    <h1>🌱 Do Campo à Cidade: <br> Cultivando o Futuro Sustentável 🌻</h1>
+    <p>Agrinho 2026 une tecnologia, educação ambiental e cidadania para formar jovens agentes de transformação. Participe e faça a diferença!</p>
+    <button class="btn" id="exploreBtn">🌿 Explorar Concurso</button>
+</section>
+
+<div class="container">
+    <!-- seção sobre -->
+    <div id="sobre" class="animate-on-scroll">
+        <h2 style="color:#2a6b2f; margin-bottom: 1rem;">📌 Sobre o Concurso Agrinho 2026</h2>
+        <p style="font-size:1.1rem; line-height:1.5;">O Agrinho é um programa educativo que incentiva alunos e professores a refletirem sobre a importância do campo e da cidade em harmonia. Em 2026, o tema "Cultivando o Futuro" aborda sustentabilidade, consumo consciente, agricultura familiar e inovação no campo. O concurso premia projetos, redações, desenhos e ações que conectam a produção rural ao bem-estar urbano.</p>
+    </div>
+
+    <!-- cards de temas -->
+    <div id="temas" class="card-grid">
+        <div class="card animate-on-scroll">
+            <div class="card-icon">🌍</div>
+            <h3>Educação Ambiental</h3>
+            <p>Práticas sustentáveis, reciclagem, e preservação dos recursos naturais, da semente à mesa.</p>
+        </div>
+        <div class="card animate-on-scroll">
+            <div class="card-icon">🚜</div>
+            <h3>Tecnologia no Campo</h3>
+            <p>Agroecologia, drones, irrigação inteligente e o futuro da produção agrícola responsável.</p>
+        </div>
+        <div class="card animate-on-scroll">
+            <div class="card-icon">🏙️</div>
+            <h3>Cidade + Campo</h3>
+            <p>Aliança entre rural e urbano, feiras orgânicas, hortas comunitárias e alimentação saudável.</p>
+        </div>
+        <div class="card animate-on-scroll">
+            <div class="card-icon">⭐</div>
+            <h3>Protagonismo Jovem</h3>
+            <p>Alunos como agentes de mudança, criando soluções para comunidades mais verdes e justas.</p>
+        </div>
+    </div>
+
+    <!-- Jogo educativo interativo -->
+    <div id="jogo" class="game-section animate-on-scroll">
+        <h2 style="text-align: center; margin-bottom: 1rem;">🎮 Quiz do Guardião Agrinho 🧑‍🌾</h2>
+        <p style="text-align: center; margin-bottom: 1.5rem;">Responda sobre sustentabilidade e práticas agrícolas. Cada acerto te aproxima de se tornar um "Guardião do Futuro"!</p>
+        <div class="game-container">
+            <div class="score-board">
+                <span>🌟 Pontuação: <span id="scoreValue">0</span></span>
+                <span>🔁 Pergunta: <span id="currentQ">1</span>/<span id="totalQ">5</span></span>
+            </div>
+            <div class="question-area">
+                <div class="question" id="questionText">Carregando pergunta...</div>
+                <div class="options" id="optionsContainer"></div>
+                <div class="feedback" id="feedbackMsg"></div>
+            </div>
+            <button class="reset-game" id="resetGameBtn">🔄 Recomeçar Jogo</button>
+        </div>
+        <p style="text-align: center; margin-top: 1rem; font-style: italic;">📚 Aprender brincando: cada resposta certa te dá 1 ponto e uma dica sustentável!</p>
+    </div>
+
+    <!-- contato e chamada -->
+    <div id="contato" class="animate-on-scroll" style="background: #cbe5b4; padding: 2rem; border-radius: 2rem; margin: 2rem 0;">
+        <h3>📢 Participe do Concurso Agrinho 2026</h3>
+        <p>Inscreva sua escola, faça parte da maior rede de educação sustentável do Brasil. Prazo de inscrições: até agosto de 2026. Entre em contato com a coordenação regional ou preencha o formulário online em breve!</p>
+        <button class="btn" id="contactBtn" style="background:#e9a23b; margin-top: 1rem;">✉️ Quero me inscrever</button>
+        <p id="toastMsg" style="margin-top: 1rem; color:#2a541f; font-weight: bold;"></p>
+    </div>
+</div>
+
+<footer>
+    <p> 🌱 Agrinho 2026 - Do Campo à Cidade: Cultivando o Futuro | Programa de Educação e Cidadania | Todos os direitos inspirados na sustentabilidade 🌎</p>
+    <p>✨ Desenvolvido para inspirar jovens transformadores ✨</p>
+</footer>
+
+<script>
+    // ---------- Jogo Educativo ----------
+    const questions = [
+        {
+            text: "Qual prática ajuda a preservar o solo e evita erosão na agricultura?",
+            options: ["Queimadas", "Plantio direto e rotação de culturas", "Uso excessivo de agrotóxicos", "Desmatamento de áreas verdes"],
+            correct: 1,
+            tip: "🌿 Plantio direto mantém palha sobre o solo, evitando erosão e melhorando a fertilidade!"
+        },
+        {
+            text: "O que significa 'Agroecologia'?",
+            options: ["Uso indiscriminado de químicos", "Agricultura baseada em princípios ecológicos e sustentáveis", "Criação intensiva de animais", "Desmatamento para pastagem"],
+            correct: 1,
+            tip: "🐝 A agroecologia une saberes populares e científicos para sistemas agrícolas saudáveis."
+        },
+        {
+            text: "Qual atitude ajuda a reduzir o desperdício de alimentos no campo e na cidade?",
+            options: ["Comprar mais do que se consome", "Planejar cardápios e aproveitar integralmente os alimentos", "Descartar frutas 'feias'", "Ignorar a data de validade"],
+            correct: 1,
+            tip: "🥕 Aproveitar talos, cascas e planejar compras evita toneladas de desperdício!"
+        },
+        {
+            text: "Por que as abelhas são importantes para a agricultura?",
+            options: ["Porque produzem mel apenas", "Polinizam as plantas, aumentando a produção de frutos e sementes", "Elas competem com as culturas", "Não são relevantes"],
+            correct: 1,
+            tip: "🐝 Abelhas polinizam 70% das culturas alimentares! Vamos protegê-las."
+        },
+        {
+            text: "O que são 'hortas urbanas'?",
+            options: ["Grandes monoculturas", "Espaços cultivados em cidades, como escolas, lajes e terrenos baldios", "Somente fazendas rurais", "Jardins ornamentais sem produção de comida"],
+            correct: 1,
+            tip: "🏙️ Hortas urbanas aproximam o campo da cidade e incentivam alimentação saudável!"
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+    let gameActive = true;
+    let answered = false; // controle por pergunta
+
+    const scoreSpan = document.getElementById("scoreValue");
+    const currentQSpan = document.getElementById("currentQ");
+    const totalQSpan = document.getElementById("totalQ");
+    const questionTextDiv = document.getElementById("questionText");
+    const optionsContainer = document.getElementById("optionsContainer");
+    const feedbackMsgDiv = document.getElementById("feedbackMsg");
+    const resetBtn = document.getElementById("resetGameBtn");
+
+    totalQSpan.textContent = questions.length;
+
+    function loadQuestion() {
+        if (!gameActive) return;
+        answered = false;
+        feedbackMsgDiv.innerHTML = "";
+        const qData = questions[currentQuestionIndex];
+        questionTextDiv.innerHTML = qData.text;
+        // gerar botões
+        optionsContainer.innerHTML = "";
+        qData.options.forEach((opt, idx) => {
+            const btn = document.createElement("button");
+            btn.className = "option-btn";
+            btn.textContent = opt;
+            btn.dataset.optIndex = idx;
+            btn.addEventListener("click", () => handleAnswer(idx, btn));
+            optionsContainer.appendChild(btn);
+        });
+        currentQSpan.textContent = currentQuestionIndex + 1;
+    }
+
+    function handleAnswer(selectedIdx, btnElement) {
+        if (!gameActive || answered) {
+            if(answered) feedbackMsgDiv.innerHTML = "⏳ Você já respondeu essa pergunta! Avance para a próxima.";
+            return;
+        }
+        const currentQ = questions[currentQuestionIndex];
+        const isCorrect = (selectedIdx === currentQ.correct);
+        if (isCorrect) {
+            score++;
+            scoreSpan.textContent = score;
+            feedbackMsgDiv.innerHTML = `✅ Correto! ${currentQ.tip} <span style="display:block; margin-top:6px;">🎉 +1 ponto! Você é um Guardião do Futuro.</span>`;
+            feedbackMsgDiv.style.color = "#1f6d1a";
+        } else {
+            const correctAnswerText = currentQ.options[currentQ.correct];
+            feedbackMsgDiv.innerHTML = `❌ Opção errada. A resposta certa é: ${correctAnswerText}. <br> 🌟 Dica: ${currentQ.tip}`;
+            feedbackMsgDiv.style.color = "#b34e1a";
+        }
+        answered = true;
+
+        // Desabilitar visualmente todos os botões de opção
+        const allOptBtns = document.querySelectorAll(".option-btn");
+        allOptBtns.forEach(btn => {
+            btn.disabled = true;
+            btn.style.opacity = "0.6";
+            btn.style.cursor = "default";
+        });
+
+        // Avançar automaticamente após 1.8 segundos para a próxima ou fim
+        setTimeout(() => {
+            if (currentQuestionIndex + 1 < questions.length) {
+                currentQuestionIndex++;
+                // reabilitar botões (novos)
+                loadQuestion();
+                // reabilitar visualmente a nova leva (não precisa)
+            } else {
+                // Fim do jogo
+                gameActive = false;
+                const totalPossible = questions.length;
+                let mensagemFinal = "";
+                if (score === totalPossible) {
+                    mensagemFinal = "🏆 Incrível! Você é um verdadeiro Guardião Sustentável! Parabéns, nota máxima! 🌟";
+                } else if (score >= totalPossible-1) {
+                    mensagemFinal = "🌻 Muito bem! Quase perfeito. Continue praticando sustentabilidade!";
+                } else {
+                    mensagemFinal = "📖 Bom começo! Revisite as dicas e tente novamente para se tornar expert Agrinho!";
+                }
+                feedbackMsgDiv.innerHTML = `🏁 Fim do Quiz! Sua pontuação final: ${score}/${totalPossible}. ${mensagemFinal}`;
+                optionsContainer.innerHTML = `<div style="padding:1rem;"><p>✨ Jogo finalizado! Recarregue ou clique em 'Recomeçar Jogo' para jogar novamente.</p></div>`;
+                questionTextDiv.innerHTML = "🌾 Parabéns por participar! Aprendizagem é o primeiro passo para mudar o mundo.";
+                const btnResetExisting = document.querySelector(".reset-game");
+                // manter botão ativo
+            }
+        }, 1800);
+    }
+
+    function resetGame() {
+        currentQuestionIndex = 0;
+        score = 0;
+        gameActive = true;
+        answered = false;
+        scoreSpan.textContent = "0";
+        feedbackMsgDiv.innerHTML = "";
+        // reativar estado
+        loadQuestion();
+        // garantir que qualquer timeout de mensagem não atrapalhe
+        // remover disabled visual, mas loadQuestion recriará botões
+    }
+
+    resetBtn.addEventListener("click", () => {
+        resetGame();
+    });
+
+    // Inicializa jogo
+    loadQuestion();
+
+    // ---------- Animações ao scroll (Intersection Observer) ----------
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('reveal');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    animatedElements.forEach(el => observer.observe(el));
+
+    // Detalhes extras: botão explore e contato com interação lúdica e toasts
+    const exploreBtn = document.getElementById("exploreBtn");
+    const contactBtn = document.getElementById("contactBtn");
+    const toastMsg = document.getElementById("toastMsg");
+
+    exploreBtn.addEventListener("click", () => {
+        // rolagem suave para seção de temas
+        document.getElementById("temas").scrollIntoView({ behavior: "smooth", block: "start" });
+        // animação extra 
+        const temaCards = document.querySelectorAll(".card");
+        temaCards.forEach((card, i) => {
+            card.style.animation = "none";
+            setTimeout(() => { card.style.animation = "fadeSlideUp 0.5s ease forwards"; }, 10);
+        });
+        toastMsg.innerHTML = "🌽 Explore os temas e inspire-se! Prepare sua participação no concurso!";
+        setTimeout(() => { if(toastMsg) toastMsg.innerHTML = ""; }, 3000);
+    });
+
+    contactBtn.addEventListener("click", () => {
+        toastMsg.innerHTML = "📝 Em breve formulário de inscrição! Enquanto isso, acesse o site oficial do Agrinho. ✉️ agrinho@educacao.gov.br";
+        setTimeout(() => { if(toastMsg) toastMsg.innerHTML = ""; }, 4000);
+        // Efeito suave
+        contactBtn.style.transform = "scale(0.97)";
+        setTimeout(() => { contactBtn.style.transform = ""; }, 150);
+    });
+
+    // Smooth scrolling para links do menu
+    const navLinks = document.querySelectorAll('.nav-links a');
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href').substring(1);
+            const targetElement = document.getElementById(targetId);
+            if(targetElement) {
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Efeito flutuante nas imagens/hero (animação sutil)
+    const heroSpan = document.querySelector('.hero h1');
+    if(heroSpan) {
+        setInterval(() => {
+            if(document.hasFocus()) {
+                // apenas pequena animação de "respiração"
+                heroSpan.style.transform = "scale(1.01)";
+                setTimeout(() => heroSpan.style.transform = "scale(1)", 600);
+            }
+        }, 3000);
+    }
+
+    // Adicionar um "selo agrinho" sutil com animação em alguns elementos
+    const styleForSelo = document.createElement('style');
+    styleForSelo.textContent = `
+        .btn, .option-btn, .reset-game { transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1); }
+        .card { transition: transform 0.25s, box-shadow 0.3s; }
+        ::selection { background: #f3c26b; color: #1f3f1a; }
+    `;
+    document.head.appendChild(styleForSelo);
+    
+    // Ao final do jogo, efeito bônus (alerta informativo não intrusivo)
+    // Estrutura extra: se o jogador terminar, já tratado dentro do jogo
+    // Adicionar uma contagem dinâmica de acertos via função de reset completo
+
+    // + efeito bônus: animação no titulo do jogo ao clicar no reset
+    resetBtn.addEventListener("click", () => {
+        const gameTitle = document.querySelector("#jogo h2");
+        if(gameTitle) {
+            gameTitle.style.transform = "scale(1.02)";
+            setTimeout(() => gameTitle.style.transform = "", 300);
+        }
+        toastMsg.innerHTML = "♻️ Jogo reiniciado! Novas perguntas para aprender ainda mais!";
+        setTimeout(() => { if(toastMsg) toastMsg.innerHTML = ""; }, 2500);
+    });
+    
+    // Seção de boas-vindas: Mensagem de boas vindas após carregamento
+    window.addEventListener('load', () => {
+        setTimeout(() => {
+            if(toastMsg) toastMsg.innerHTML = "🌟 Bem-vindo ao portal Agrinho 2026! Participe do quiz e explore os conteúdos!";
+            setTimeout(() => { if(toastMsg) toastMsg.innerHTML = ""; }, 4500);
+        }, 600);
+    });
+</script>
+</body>
+</html>
